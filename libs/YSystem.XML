@@ -1,0 +1,804 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YSystem</name>
+    </assembly>
+    <members>
+        <member name="T:YLR.YSystem.Role.RoleOperater">
+            <summary>
+            角色数据库操作类。
+            作者：董帅 创建时间：2012-8-15 23:00:55
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleOperater._roleDataBase">
+            <summary>
+            角色数据库实例。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleOperater._errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.createRoleOperater(System.String,System.String)">
+            <summary>
+            创建角色数据库操作对象。
+            作者：董帅 创建时间：2012-8-15 23:20:13
+            </summary>
+            <param name="configFilePath">配置文件路径。</param>
+            <param name="nodeName">节点名。</param>
+            <returns>成功返回操作对象，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.createNewRole(YLR.YSystem.Role.RoleInfo)">
+            <summary>
+            创建一个角色。
+            </summary>
+            <param name="role">要创建的角色，名称不能为空。</param>
+            <returns>成功返回创建的角色id，失败返回-1。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.getRoleFormDataRow(System.Data.DataRow)">
+            <summary>
+            根据DataRow获取权限对象。
+            </summary>
+            <param name="r">权限数据</param>
+            <returns>权限，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.getRoles">
+            <summary>
+            获取所有的权限。
+            作者：董帅 创建时间：2012-8-16 21:45:33
+            </summary>
+            <returns>权限，如果失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.getRole(System.Int32)">
+            <summary>
+            通过指定的权限id获取权限。
+            </summary>
+            <param name="id">权限id</param>
+            <returns>权限</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.changeRole(YLR.YSystem.Role.RoleInfo)">
+            <summary>
+            修改权限。
+            作者：董帅 创建时间：2012-8-16 22:16:27
+            </summary>
+            <param name="role">要修改的权限，使用id作为唯一标识。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.deleteRoles(System.Int32[])">
+            <summary>
+            删除角色。
+            作者：董帅 创建时间：2012-8-16 22:33:20
+            </summary>
+            <param name="ids">要删除的角色id。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.getChouseMenus(System.Int32)">
+            <summary>
+            根据角色id获取菜单，并标记选中的菜单。
+            作者：董帅 创建时间：2012-8-20 23:12:49
+            </summary>
+            <param name="roleId">角色id</param>
+            <returns>角色菜单，失败返回null</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.chouseRoleMenus(System.Int32,System.Int32[])">
+            <summary>
+            选择权限菜单，将制定id保存到数据库。
+            作者：董帅 创建时间：2012-8-20 23:42:03
+            </summary>
+            <param name="roleId">角色id。</param>
+            <param name="menuIds">选中的菜单id。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.chouseUserRoles(System.Int32,System.Int32[])">
+            <summary>
+            选择用户角色，将指定id保存到数据库。
+            作者：董帅 创建时间：时间
+            </summary>
+            <param name="userId">用户id。</param>
+            <param name="roleIds">选中的角色id。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Role.RoleOperater.getChouseRoles(System.Int32)">
+            <summary>
+            根据用户id获取角色，并标记选中的角色。
+            作者：董帅 创建时间：2012-8-20 23:12:49
+            </summary>
+            <param name="userId">用户id</param>
+            <returns>用户角色，失败返回null</returns>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleOperater.roleDataBase">
+            <summary>
+            角色数据库实例。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleOperater.errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.DataDictionary.DataDictionaryInfo">
+            <summary>
+            数据字典实体类。
+            作者：董帅 创建时间：2012-8-28 17:33:34
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._paretnId">
+            <summary>
+            父id，为-1表示顶级字典。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._value">
+            <summary>
+            字典对应的数值，默认是0。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._code">
+            <summary>
+            字典对应的代码。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDictionaryInfo._order">
+            <summary>
+            字典的排序序号。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.id">
+            <summary>
+            id
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.parentId">
+            <summary>
+            父id，为-1表示顶级字典。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.name">
+            <summary>
+            名称。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.value">
+            <summary>
+            字典对应的数值，默认是0。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.code">
+            <summary>
+            字典对应的代码。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDictionaryInfo.order">
+            <summary>
+            字典的排序序号。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Role.RoleInfo">
+            <summary>
+            角色信息类。
+            作者：董帅 创建时间：2012-8-15 22:54:38
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleInfo._id">
+            <summary>
+            角色id。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleInfo._name">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleInfo._explain">
+            <summary>
+            说明。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleInfo.id">
+            <summary>
+            角色id。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleInfo.name">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleInfo.explain">
+            <summary>
+            说明。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Organization.OrgOperater">
+            <summary>
+            组织机构操作操作类。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrgOperater._orgDataBase">
+            <summary>
+            组织机构数据库。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrgOperater._errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.createOrgOperater(System.String,System.String)">
+            <summary>
+            创建组织机构数据库操作对象。
+            作者：董帅 创建时间：2012-8-22 13:17:48
+            </summary>
+            <param name="configFilePath">配置文件路径。</param>
+            <param name="nodeName">节点名。</param>
+            <returns>成功返回操作对象，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.createNewOrganization(YLR.YSystem.Organization.OrganizationInfo)">
+            <summary>
+            创建新组织机构。
+            </summary>
+            <param name="org">新组织机构，组织机构名称不能为""，切长度不能大于50。</param>
+            <returns>成功返回组织机构id，失败返回-1。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getOrganizationFormDataRow(System.Data.DataRow)">
+            <summary>
+            根据DataRow获取组织机构对象。
+            </summary>
+            <param name="r">组织机构数据</param>
+            <returns>组织机构，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getOrganization(System.Int32)">
+            <summary>
+            获取组织机构。
+            作者：董帅 创建时间：2012-8-22 22:22:47
+            </summary>
+            <param name="id">机构id。</param>
+            <returns>机构，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.changeOrganization(YLR.YSystem.Organization.OrganizationInfo)">
+            <summary>
+            修改指定组织机构的内容，通过组织机构id匹配。
+            </summary>
+            <param name="org">要修改的组织机构。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getOrganizationByParentId(System.Int32)">
+            <summary>
+            通过指定的父id获取组织机构列表。
+            作者：董帅 创建时间：2012-8-22 12:57:13
+            </summary>
+            <param name="pId">父id，如果是顶级机构，父id为-1</param>
+            <returns>成功返回组织机构列表，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.createNewUser(YLR.YSystem.Organization.UserInfo)">
+            <summary>
+            创建新用户。
+            作者：董帅 创建时间：2012-8-23 13:23:45
+            </summary>
+            <param name="user">新用户。</param>
+            <returns>成功返回用户id，失败返回-1。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getUser(System.Int32)">
+            <summary>
+            获取指定id的用户。
+            作者：董帅 创建时间：2012-8-23 23:03:58
+            </summary>
+            <param name="id">用户id</param>
+            <returns>成功返回用户，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getUser(System.String,System.String)">
+            <summary>
+            根据登录名和密码获取用户信息，如果存在多个用户则返回id小的。
+            </summary>
+            <param name="logName">登陆名</param>
+            <param name="logPassword">密码</param>
+            <returns>成功返回用户，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getUserFormDataRow(System.Data.DataRow)">
+            <summary>
+            根据DataRow获取用户对象。
+            作者：董帅 创建时间：2012-8-23 21:34:04
+            </summary>
+            <param name="r">用户数据</param>
+            <returns>用户，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.getUserByOrganizationId(System.Int32)">
+            <summary>
+            通过指定的组织机构id获取该机构下的所有用户。
+            作者：董帅 创建时间：2012-8-23 21:27:07
+            </summary>
+            <param name="orgId">机构id</param>
+            <returns>用户列表，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.changeUser(YLR.YSystem.Organization.UserInfo)">
+            <summary>
+            修改指定用户的内容，通过用户id匹配。
+            </summary>
+            <param name="user">要修改的用户。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.existUser(System.String)">
+            <summary>
+            判断用户是否存在。
+            </summary>
+            <param name="logName">登陆名</param>
+            <returns>存在返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.changePassword(YLR.YSystem.Organization.UserInfo)">
+            <summary>
+            修改用户密码。
+            </summary>
+            <param name="user">要修改的用户信息。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.deleteOrganizationAndUser(System.Int32[],System.Int32[])">
+            <summary>
+            删除指定的机构和用户，数据删除只做逻辑删除不做物理删除，机构数据删除时，连同子机构和用户一并删除。
+            作者：董帅 创建时间：2012-8-24 16:19:02
+            </summary>
+            <param name="orgIds">组织机构id</param>
+            <param name="userIds">用户id</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Organization.OrgOperater.deleteChildOrgaizationAndUser(System.Int32)">
+            <summary>
+            删除指定机构的子机构和用户。调用前需要连接数据库，调用后关闭。
+            作者：董帅 创建时间：2012-8-24 17:19:17
+            </summary>
+            <param name="orgId">机构id</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrgOperater.orgDataBase">
+            <summary>
+            组织机构数据库。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrgOperater.errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Menu.MenuOperater">
+            <summary>
+            菜单操作类库封装。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuOperater._menuDataBase">
+            <summary>
+            菜单数据库实例。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuOperater._errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.getMenuFormDataRow(System.Data.DataRow)">
+            <summary>
+            根据DataRow获取菜单对象。
+            </summary>
+            <param name="r">菜单数据</param>
+            <returns>菜单，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.getMainPageMunus(System.Int32)">
+            <summary>
+            根据用户id，获取主页菜单。
+            作者：董帅 创建时间：2012-8-27 23:24:28
+            </summary>
+            <param name="userId">用户id</param>
+            <returns>主页菜单。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.getMenuByParentId(System.Int32)">
+            <summary>
+            通过父id获取菜单。
+            作者：董帅 创建时间：2012-8-6 12:57:40
+            </summary>
+            <param name="parentId">父id，为-1时表示获取顶层菜单。。</param>
+            <returns>菜单，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.createNewMenu(YLR.YSystem.Menu.MenuInfo)">
+            <summary>
+            创建一个菜单。
+            </summary>
+            <param name="menu">要创建的菜单，名称不能为空。</param>
+            <returns>成功返回创建的菜单id，失败返回-1。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.getMenu(System.Int32)">
+            <summary>
+            获取指定id的菜单。
+            </summary>
+            <param name="id">菜单id</param>
+            <returns>菜单，失败返回null</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.changeMenu(YLR.YSystem.Menu.MenuInfo)">
+            <summary>
+            修改指定菜单的内容，通过菜单id匹配。
+            </summary>
+            <param name="menu">要修改的菜单。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.Menu.MenuOperater.deleteGroup(System.Int32[])">
+            <summary>
+            批量删除分组。
+            作者：董帅 创建时间：2012-8-14 14:49:28
+            </summary>
+            <param name="ids">要删除的分组id。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuOperater.menuDataBase">
+            <summary>
+            菜单数据库实例。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuOperater.errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.DataDictionary.DataDicOperater">
+            <summary>
+            数据字典业务类封装。
+            作者：董帅 创建时间：2012-8-28 17:41:18
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDicOperater._dicDataBase">
+            <summary>
+            数据字典数据库。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.DataDictionary.DataDicOperater._errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.createDataDicOperater(System.String,System.String)">
+            <summary>
+            创建数据字典数据库操作对象。
+            作者：董帅 创建时间：2012-8-28 17:43:19
+            </summary>
+            <param name="configFilePath">配置文件路径。</param>
+            <param name="nodeName">节点名。</param>
+            <returns>成功返回操作对象，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.createNewDataDictionary(YLR.YSystem.DataDictionary.DataDictionaryInfo)">
+            <summary>
+            创建新字典项。
+            </summary>
+            <param name="dataDic">新字典项，新字典项名称不能为""，切长度不能大于50。</param>
+            <returns>成功返回组织机构id，失败返回-1。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.getDataDictionaryFormDataRow(System.Data.DataRow)">
+            <summary>
+            根据DataRow获取数据字典项对象。
+            </summary>
+            <param name="r">字典项数据</param>
+            <returns>字典项，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.getDataDictionary(System.Int32)">
+            <summary>
+            根据字典id，获取字典项。
+            作者：董帅 创建时间：2012-8-28 21:39:05
+            </summary>
+            <param name="id">字典id。</param>
+            <returns>字典，失败返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.getDataDictionaryByParentId(System.Int32)">
+            <summary>
+            通过指定的父id获取字典项列表。
+            作者：董帅 创建时间：2012-8-28 21:27:19
+            </summary>
+            <param name="pId">父id，如果是顶级字典，父id为-1</param>
+            <returns>成功返回字典项列表，否则返回null。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.changeDataDictionary(YLR.YSystem.DataDictionary.DataDictionaryInfo)">
+            <summary>
+            修改指定字典项内容，通过字典项id匹配。
+            </summary>
+            <param name="dic">要修改的字典项。</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.deleteDataDictionarys(System.Int32[])">
+            <summary>
+            删除指定的字典项，删除时，连同子字典项一并删除。
+            作者：董帅 创建时间：2012-8-28 22:20:05
+            </summary>
+            <param name="dicIds">字典项id</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="M:YLR.YSystem.DataDictionary.DataDicOperater.deleteChildDataDictionarys(System.Int32)">
+            <summary>
+            删除指定字典项。调用前需要连接数据库，调用后关闭。
+            作者：董帅 创建时间：2012-8-28 22:21:50
+            </summary>
+            <param name="dicId">字典项id</param>
+            <returns>成功返回true，否则返回false。</returns>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDicOperater.orgDataBase">
+            <summary>
+            数据字典数据库。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.DataDictionary.DataDicOperater.errorMessage">
+            <summary>
+            错误信息。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Role.UserRoleInfo">
+            <summary>
+            用户角色信息，记录用户被选则的角色。
+            作者：董帅 创建时间：2012-8-27 22:27:52
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.UserRoleInfo._choused">
+            <summary>
+            是否选择。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.UserRoleInfo.choused">
+            <summary>
+            是否选择。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Role.RoleMenuInfo">
+            <summary>
+            权限菜单，继承菜单属性，扩展权限特有属性。
+            作者：董帅 创建时间：2012-8-20 23:06:50
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Menu.MenuInfo">
+            <summary>
+            菜单实体类。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._id">
+            <summary>
+            菜单id。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._name">
+            <summary>
+            菜单名称。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._url">
+            <summary>
+            菜单关联的url。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._parentID">
+            <summary>
+            父菜单id，为-1标识顶级菜单。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._icon">
+            <summary>
+            菜单图片。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._desktopIcon">
+            <summary>
+            桌面图标。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._order">
+            <summary>
+            排序序号。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Menu.MenuInfo._childMenus">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.id">
+            <summary>
+            菜单id。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.name">
+            <summary>
+            菜单名称。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.url">
+            <summary>
+            菜单关联的url。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.parentID">
+            <summary>
+            父菜单id，为-1标识顶级菜单。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.icon">
+            <summary>
+            菜单图片。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.desktopIcon">
+            <summary>
+            桌面图标。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.order">
+            <summary>
+            排序序号。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Menu.MenuInfo.childMenus">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleMenuInfo._choused">
+            <summary>
+            是否选择。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Role.RoleMenuInfo._childMenus">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleMenuInfo.choused">
+            <summary>
+            是否选择。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Role.RoleMenuInfo.childMenus">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Organization.OrganizationInfo">
+            <summary>
+            组织机构实体类。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._id">
+            <summary>
+            组织机构id，-1表示错误机构。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._name">
+            <summary>
+            组织机构名称。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._parentId">
+            <summary>
+            组织机构父id，-1表示顶级机构。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._createTime">
+            <summary>
+            创建时间，默认值是当前值。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._isDelete">
+            <summary>
+            是否删除。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.OrganizationInfo._order">
+            <summary>
+            序号。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.id">
+            <summary>
+            组织机构id。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.name">
+            <summary>
+            组织机构名称。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.parentId">
+            <summary>
+            组织机构父id，-1表示顶级机构。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.createTime">
+            <summary>
+            创建时间，默认值是当前值。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.isDelete">
+            <summary>
+            是否删除。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.OrganizationInfo.order">
+            <summary>
+            序号。
+            </summary>
+        </member>
+        <member name="T:YLR.YSystem.Organization.UserInfo">
+            <summary>
+            组织机构用户实体类。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._id">
+            <summary>
+            用户id。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._logName">
+            <summary>
+            登陆名。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._logPassword">
+            <summary>
+            用户登陆密码。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._name">
+            <summary>
+            用户姓名。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._organizationId">
+            <summary>
+            用户所属机构id。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._isDelete">
+            <summary>
+            是否删除。
+            </summary>
+        </member>
+        <member name="F:YLR.YSystem.Organization.UserInfo._order">
+            <summary>
+            序号。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.id">
+            <summary>
+            用户id。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.logName">
+            <summary>
+            登陆名。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.logPassword">
+            <summary>
+            用户登陆密码。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.name">
+            <summary>
+            用户姓名。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.organizationId">
+            <summary>
+            用户所属机构id。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.isDelete">
+            <summary>
+            是否删除。
+            </summary>
+        </member>
+        <member name="P:YLR.YSystem.Organization.UserInfo.order">
+            <summary>
+            序号。
+            </summary>
+        </member>
+    </members>
+</doc>
