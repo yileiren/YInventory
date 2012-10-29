@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YAgileControls</name>
+    </assembly>
+    <members>
+        <member name="M:YLR.YAgileControls.PagerControl.YPagerControl.OnPageChanged(System.EventArgs)">
+            <summary>
+            分页控件页面改变事件，在此进行数据处理。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:YLR.YAgileControls.PagerControl.YPagerControl.PageCount">
+            <summary>
+            总页数。
+            </summary>
+        </member>
+        <member name="P:YLR.YAgileControls.PagerControl.YPagerControl.PageNum">
+            <summary>
+            当前显示的页号，从1开始。
+            </summary>
+        </member>
+        <member name="P:YLR.YAgileControls.PagerControl.YPagerControl.DataCount">
+            <summary>
+            每页显示的数据数量，默认是20。
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -53,6 +53,10 @@
     <Reference Include="YAdoNet">
       <HintPath>..\libs\YAdoNet.dll</HintPath>
     </Reference>
+    <Reference Include="YAgileControls, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\YAgileControls.dll</HintPath>
+    </Reference>
     <Reference Include="YCrypto">
       <HintPath>..\libs\YCrypto.dll</HintPath>
     </Reference>
