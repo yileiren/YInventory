@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5860D762-D407-4DF7-BC9E-4EB9D8214051}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YLR.YInventory</RootNamespace>
+    <AssemblyName>YInventory</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\YInventory.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Json">
+      <HintPath>..\libs\System.Net.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="YAdoNet">
+      <HintPath>..\libs\YAdoNet.dll</HintPath>
+    </Reference>
+    <Reference Include="YSystem, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\YSystem.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Goods\GoodsInfo.cs" />
+    <Compile Include="Goods\GoodsOperater.cs" />
+    <Compile Include="Inventory\GoodsCount.cs" />
+    <Compile Include="Inventory\InventoryDetailInfo.cs" />
+    <Compile Include="Inventory\InventoryMasterInfo.cs" />
+    <Compile Include="Inventory\InventoryStates.cs" />
+    <Compile Include="Inventory\PushOutStorage\PushOutGoodsCount.cs" />
+    <Compile Include="Inventory\PushOutStorage\PushOutInventoryDetailInfo.cs" />
+    <Compile Include="Inventory\PushOutStorage\PushOutStorageOperater.cs" />
+    <Compile Include="Inventory\PutInStorage\PutInStorageOperater.cs" />
+    <Compile Include="Inventory\RetrnOfGoods\RetrnOfGoodsOperater.cs" />
+    <Compile Include="Inventory\RetrnToStorage\RetrnToStorageInventoryDetailInfo.cs" />
+    <Compile Include="Inventory\RetrnToStorage\RetrnToStorageOperater.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplierAndClient\SupplierAndClientInfo.cs" />
+    <Compile Include="SupplierAndClient\SupplierAndClientOperater.cs" />
+    <Compile Include="Warehouse\WarehouseAdmin.cs" />
+    <Compile Include="Warehouse\WarehouseInfo.cs" />
+    <Compile Include="Warehouse\WarehouseOperater.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

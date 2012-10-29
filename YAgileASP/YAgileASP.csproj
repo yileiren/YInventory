@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00EA9EA8-526D-4BF2-BD5C-37F0674793ED}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YAgileASP</RootNamespace>
+    <AssemblyName>YAgileASP</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\YAgileASP.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="YAdoNet">
+      <HintPath>..\libs\YAdoNet.dll</HintPath>
+    </Reference>
+    <Reference Include="YCrypto">
+      <HintPath>..\libs\YCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="YSystem, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\YSystem.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="background\images\login\login.png" />
+    <Content Include="background\images\login\userName.png" />
+    <Content Include="background\images\login\userPassword.png" />
+    <Content Include="background\images\mainPage\title_01.gif" />
+    <Content Include="background\images\mainPage\title_02.gif" />
+    <Content Include="background\images\organization\userIcon.png" />
+    <Content Include="background\images\putInStorage\detail.png" />
+    <Content Include="background\inventory\goods\goods_edit.aspx" />
+    <Content Include="background\inventory\goods\goods_list.aspx" />
+    <Content Include="background\inventory\pushOutStorage\chouseGoods.aspx" />
+    <Content Include="background\inventory\pushOutStorage\pushOutStorage_detail.aspx" />
+    <Content Include="background\inventory\pushOutStorage\pushOutStorage_detail_edit.aspx" />
+    <Content Include="background\inventory\pushOutStorage\pushOutStorage_edit.aspx" />
+    <Content Include="background\inventory\pushOutStorage\pushOutStorage_list.aspx" />
+    <Content Include="background\inventory\putInStorage\putInStorage_detail.aspx" />
+    <Content Include="background\inventory\putInStorage\putInStorage_detail_edit.aspx" />
+    <Content Include="background\inventory\putInStorage\putInStorage_edit.aspx" />
+    <Content Include="background\inventory\putInStorage\putInStorage_list.aspx" />
+    <Content Include="background\inventory\retailReturn\chouseGoods.aspx" />
+    <Content Include="background\inventory\retailReturn\retailReturn_detail.aspx" />
+    <Content Include="background\inventory\retailReturn\retailReturn_edit.aspx" />
+    <Content Include="background\inventory\retailReturn\retailReturn_list.aspx" />
+    <Content Include="background\inventory\retailStorage\chouseGoods.aspx" />
+    <Content Include="background\inventory\retailStorage\retailStorage_detail.aspx" />
+    <Content Include="background\inventory\retailStorage\retailStorage_detail_edit.aspx" />
+    <Content Include="background\inventory\retailStorage\retailStorage_edit.aspx" />
+    <Content Include="background\inventory\retailStorage\retailStorage_list.aspx" />
+    <Content Include="background\inventory\retrnOfGoods\chouseGoods.aspx" />
+    <Content Include="background\inventory\retrnOfGoods\retrnOfGoods_detail.aspx" />
+    <Content Include="background\inventory\retrnOfGoods\retrnOfGoods_detail_edit.aspx" />
+    <Content Include="background\inventory\retrnOfGoods\retrnOfGoods_edit.aspx" />
+    <Content Include="background\inventory\retrnOfGoods\retrnOfGoods_list.aspx" />
+    <Content Include="background\inventory\retrnToStorage\chouseGoods.aspx" />
+    <Content Include="background\inventory\retrnToStorage\retrnToStorage_detail.aspx" />
+    <Content Include="background\inventory\retrnToStorage\retrnToStorage_detail_edit.aspx" />
+    <Content Include="background\inventory\retrnToStorage\retrnToStorage_edit.aspx" />
+    <Content Include="background\inventory\retrnToStorage\retrnToStorage_list.aspx" />
+    <Content Include="background\inventory\supplierAndClient\supplierAndClient_edit.aspx" />
+    <Content Include="background\inventory\supplierAndClient\supplierAndClient_list.aspx" />
+    <Content Include="background\inventory\warehouse\chouseUsers.aspx" />
+    <Content Include="background\inventory\warehouse\warehouse_edit.aspx" />
+    <Content Include="background\mainPage.aspx" />
+    <Content Include="background\sys\changePassword.aspx" />
+    <Content Include="background\sys\dataDictionary\dataDictionary_edit.aspx" />
+    <Content Include="background\sys\dataDictionary\dataDictionary_list.aspx" />
+    <Content Include="background\sys\login.aspx" />
+    <Content Include="background\sys\menu\menu_edit.aspx" />
+    <Content Include="background\sys\menu\menu_list.aspx" />
+    <Content Include="background\sys\organization\chouseRole.aspx" />
+    <Content Include="background\sys\organization\organization_edit.aspx" />
+    <Content Include="background\sys\organization\organization_list.aspx" />
+    <Content Include="background\sys\organization\user_edit.aspx" />
+    <Content Include="background\sys\role\chouseMenu.aspx" />
+    <Content Include="background\sys\role\role_edit.aspx" />
+    <Content Include="background\sys\role\role_list.aspx" />
+    <Content Include="css\table.css" />
+    <Content Include="DataBaseConfig.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="background\inventory\warehouse\warehouse_list.aspx" />
+    <Content Include="js\jquery-easyui\changelog.txt" />
+    <Content Include="js\jquery-easyui\easyloader.js" />
+    <Content Include="js\jquery-easyui\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery-easyui\jquery.easyui.min.js" />
+    <Content Include="js\jquery-easyui\licence_gpl.txt" />
+    <Content Include="js\jquery-easyui\license_commercial.txt" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-af.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-bg.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-ca.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-cs.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-cz.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-da.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-de.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-en.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-es.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-fr.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-nl.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-pt_BR.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-ru.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-tr.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-zh_CN.js" />
+    <Content Include="js\jquery-easyui\locale\easyui-lang-zh_TW.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.accordion.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.calendar.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.combo.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.combobox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.combogrid.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.combotree.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.datagrid.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.datebox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.datetimebox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.dialog.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.draggable.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.droppable.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.form.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.layout.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.linkbutton.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.menu.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.menubutton.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.messager.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.numberbox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.numberspinner.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.pagination.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.panel.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.parser.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.progressbar.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.propertygrid.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.resizable.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.searchbox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.slider.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.spinner.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.splitbutton.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.tabs.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.timespinner.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.tree.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.treegrid.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.validatebox.js" />
+    <Content Include="js\jquery-easyui\plugins\jquery.window.js" />
+    <Content Include="js\jquery-easyui\readme.txt" />
+    <Content Include="js\jquery-easyui\themes\default\accordion.css" />
+    <Content Include="js\jquery-easyui\themes\default\calendar.css" />
+    <Content Include="js\jquery-easyui\themes\default\combo.css" />
+    <Content Include="js\jquery-easyui\themes\default\combobox.css" />
+    <Content Include="js\jquery-easyui\themes\default\datagrid.css" />
+    <Content Include="js\jquery-easyui\themes\default\datebox.css" />
+    <Content Include="js\jquery-easyui\themes\default\dialog.css" />
+    <Content Include="js\jquery-easyui\themes\default\easyui.css" />
+    <Content Include="js\jquery-easyui\themes\default\images\accordion_collapse.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\accordion_expand.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\blank.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\button_a_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\button_plain_hover.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\button_span_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\calendar_nextmonth.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\calendar_nextyear.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\calendar_prevmonth.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\calendar_prevyear.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\combo_arrow.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_header_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_row_collapse.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_row_expand.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_sort_asc.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_sort_desc.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\datagrid_title_bg.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\datebox_arrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\layout_arrows.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\layout_button_down.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\layout_button_left.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\layout_button_right.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\layout_button_up.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\menu.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\menu_downarrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\menu_rightarrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\menu_sep.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\menu_split_downarrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\messager_error.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\messager_info.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\messager_question.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\messager_warning.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_first.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_last.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_load.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_next.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\pagination_prev.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\panel_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\panel_title.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\panel_tools.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\panel_tool_collapse.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\panel_tool_expand.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\searchbox_button.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\slider_handle.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\spinner_arrow_down.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\spinner_arrow_up.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tabs_active.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tabs_close.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tabs_enabled.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tabs_leftarrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tabs_rightarrow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_arrows.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_checkbox_0.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_checkbox_1.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_checkbox_2.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_dnd_no.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_dnd_yes.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_elbow.png" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_file.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_folder.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_folder_open.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\tree_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\validatebox_pointer.gif" />
+    <Content Include="js\jquery-easyui\themes\default\images\validatebox_warning.png" />
+    <Content Include="js\jquery-easyui\themes\default\layout.css" />
+    <Content Include="js\jquery-easyui\themes\default\linkbutton.css" />
+    <Content Include="js\jquery-easyui\themes\default\menu.css" />
+    <Content Include="js\jquery-easyui\themes\default\menubutton.css" />
+    <Content Include="js\jquery-easyui\themes\default\messager.css" />
+    <Content Include="js\jquery-easyui\themes\default\pagination.css" />
+    <Content Include="js\jquery-easyui\themes\default\panel.css" />
+    <Content Include="js\jquery-easyui\themes\default\progressbar.css" />
+    <Content Include="js\jquery-easyui\themes\default\propertygrid.css" />
+    <Content Include="js\jquery-easyui\themes\default\searchbox.css" />
+    <Content Include="js\jquery-easyui\themes\default\slider.css" />
+    <Content Include="js\jquery-easyui\themes\default\spinner.css" />
+    <Content Include="js\jquery-easyui\themes\default\splitbutton.css" />
+    <Content Include="js\jquery-easyui\themes\default\tabs.css" />
+    <Content Include="js\jquery-easyui\themes\default\tree.css" />
+    <Content Include="js\jquery-easyui\themes\default\validatebox.css" />
+    <Content Include="js\jquery-easyui\themes\default\window.css" />
+    <Content Include="js\jquery-easyui\themes\gray\accordion.css" />
+    <Content Include="js\jquery-easyui\themes\gray\calendar.css" />
+    <Content Include="js\jquery-easyui\themes\gray\combo.css" />
+    <Content Include="js\jquery-easyui\themes\gray\combobox.css" />
+    <Content Include="js\jquery-easyui\themes\gray\datagrid.css" />
+    <Content Include="js\jquery-easyui\themes\gray\datebox.css" />
+    <Content Include="js\jquery-easyui\themes\gray\dialog.css" />
+    <Content Include="js\jquery-easyui\themes\gray\easyui.css" />
+    <Content Include="js\jquery-easyui\themes\gray\images\accordion_collapse.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\accordion_expand.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\blank.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\button_a_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\button_plain_hover.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\button_span_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\calendar_nextmonth.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\calendar_nextyear.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\calendar_prevmonth.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\calendar_prevyear.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\combo_arrow.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_header_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_row_collapse.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_row_expand.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_sort_asc.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_sort_desc.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datagrid_title_bg.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\datebox_arrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\layout_arrows.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\layout_button_down.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\layout_button_left.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\layout_button_right.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\layout_button_up.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\menu.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\menu_downarrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\menu_rightarrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\menu_sep.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\menu_split_downarrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\messager_error.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\messager_info.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\messager_question.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\messager_warning.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_first.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_last.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_load.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_next.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\pagination_prev.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\panel_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\panel_title.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\panel_tools.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\panel_tool_collapse.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\panel_tool_expand.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\searchbox_button.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\slider_handle.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\spinner_arrow_down.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\spinner_arrow_up.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tabs_close.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tabs_enabled.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tabs_leftarrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tabs_rightarrow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_arrows.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_checkbox_0.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_checkbox_1.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_checkbox_2.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_dnd_no.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_dnd_yes.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_elbow.png" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_file.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_folder.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_folder_open.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\tree_loading.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\validatebox_pointer.gif" />
+    <Content Include="js\jquery-easyui\themes\gray\images\validatebox_warning.png" />
+    <Content Include="js\jquery-easyui\themes\gray\layout.css" />
+    <Content Include="js\jquery-easyui\themes\gray\linkbutton.css" />
+    <Content Include="js\jquery-easyui\themes\gray\menu.css" />
+    <Content Include="js\jquery-easyui\themes\gray\menubutton.css" />
+    <Content Include="js\jquery-easyui\themes\gray\messager.css" />
+    <Content Include="js\jquery-easyui\themes\gray\pagination.css" />
+    <Content Include="js\jquery-easyui\themes\gray\panel.css" />
+    <Content Include="js\jquery-easyui\themes\gray\progressbar.css" />
+    <Content Include="js\jquery-easyui\themes\gray\propertygrid.css" />
+    <Content Include="js\jquery-easyui\themes\gray\searchbox.css" />
+    <Content Include="js\jquery-easyui\themes\gray\slider.css" />
+    <Content Include="js\jquery-easyui\themes\gray\spinner.css" />
+    <Content Include="js\jquery-easyui\themes\gray\splitbutton.css" />
+    <Content Include="js\jquery-easyui\themes\gray\tabs.css" />
+    <Content Include="js\jquery-easyui\themes\gray\tree.css" />
+    <Content Include="js\jquery-easyui\themes\gray\validatebox.css" />
+    <Content Include="js\jquery-easyui\themes\gray\window.css" />
+    <Content Include="js\jquery-easyui\themes\icon.css" />
+    <Content Include="js\jquery-easyui\themes\icons\back.png" />
+    <Content Include="js\jquery-easyui\themes\icons\blank.gif" />
+    <Content Include="js\jquery-easyui\themes\icons\cancel.png" />
+    <Content Include="js\jquery-easyui\themes\icons\cut.png" />
+    <Content Include="js\jquery-easyui\themes\icons\detail.png" />
+    <Content Include="js\jquery-easyui\themes\icons\dictionary.png" />
+    <Content Include="js\jquery-easyui\themes\icons\dustbin.png" />
+    <Content Include="js\jquery-easyui\themes\icons\edit_add.png" />
+    <Content Include="js\jquery-easyui\themes\icons\edit_remove.png" />
+    <Content Include="js\jquery-easyui\themes\icons\filesave.png" />
+    <Content Include="js\jquery-easyui\themes\icons\goods.png" />
+    <Content Include="js\jquery-easyui\themes\icons\help.png" />
+    <Content Include="js\jquery-easyui\themes\icons\home.png" />
+    <Content Include="js\jquery-easyui\themes\icons\inventory.png" />
+    <Content Include="js\jquery-easyui\themes\icons\key.png" />
+    <Content Include="js\jquery-easyui\themes\icons\menu.png" />
+    <Content Include="js\jquery-easyui\themes\icons\mini_add.png" />
+    <Content Include="js\jquery-easyui\themes\icons\mini_edit.png" />
+    <Content Include="js\jquery-easyui\themes\icons\mini_refresh.png" />
+    <Content Include="js\jquery-easyui\themes\icons\no.png" />
+    <Content Include="js\jquery-easyui\themes\icons\ok.png" />
+    <Content Include="js\jquery-easyui\themes\icons\organization.png" />
+    <Content Include="js\jquery-easyui\themes\icons\out.png" />
+    <Content Include="js\jquery-easyui\themes\icons\pencil.png" />
+    <Content Include="js\jquery-easyui\themes\icons\play.png" />
+    <Content Include="js\jquery-easyui\themes\icons\print.png" />
+    <Content Include="js\jquery-easyui\themes\icons\pushOutStorage.png" />
+    <Content Include="js\jquery-easyui\themes\icons\putInStorage.png" />
+    <Content Include="js\jquery-easyui\themes\icons\redo.png" />
+    <Content Include="js\jquery-easyui\themes\icons\reload.png" />
+    <Content Include="js\jquery-easyui\themes\icons\retail.png" />
+    <Content Include="js\jquery-easyui\themes\icons\retailReturn.png" />
+    <Content Include="js\jquery-easyui\themes\icons\retrnOfGoods.png" />
+    <Content Include="js\jquery-easyui\themes\icons\retrnToStorage.png" />
+    <Content Include="js\jquery-easyui\themes\icons\role.png" />
+    <Content Include="js\jquery-easyui\themes\icons\search.png" />
+    <Content Include="js\jquery-easyui\themes\icons\sum.png" />
+    <Content Include="js\jquery-easyui\themes\icons\supplierAndClient.png" />
+    <Content Include="js\jquery-easyui\themes\icons\system.png" />
+    <Content Include="js\jquery-easyui\themes\icons\systemMenu.png" />
+    <Content Include="js\jquery-easyui\themes\icons\systemSetting.png" />
+    <Content Include="js\jquery-easyui\themes\icons\tip.png" />
+    <Content Include="js\jquery-easyui\themes\icons\undo.png" />
+    <Content Include="js\jquery-easyui\themes\icons\user.png" />
+    <Content Include="js\jquery-easyui\themes\icons\userlogin.png" />
+    <Content Include="js\jquery-easyui\themes\icons\warehouse.png" />
+    <Content Include="js\jquery.json.js" />
+    <Content Include="js\jquery.json.min.js" />
+    <Content Include="js\jquery\jquery.js" />
+    <Content Include="js\jquery\jquery.min.js" />
+    <Content Include="js\md5.js" />
+    <Content Include="js\My97DatePicker\calendar.js" />
+    <Content Include="js\My97DatePicker\config.js" />
+    <Content Include="js\My97DatePicker\lang\en.js" />
+    <Content Include="js\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="js\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="js\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="js\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="js\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\default\img.gif" />
+    <Content Include="js\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="js\My97DatePicker\WdatePicker.js" />
+    <Content Include="js\YWindows.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="background\inventory\goods\goods_edit.aspx.cs">
+      <DependentUpon>goods_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\goods\goods_edit.aspx.designer.cs">
+      <DependentUpon>goods_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\goods\goods_list.aspx.cs">
+      <DependentUpon>goods_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\goods\goods_list.aspx.designer.cs">
+      <DependentUpon>goods_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\chouseGoods.aspx.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\chouseGoods.aspx.designer.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_detail.aspx.cs">
+      <DependentUpon>pushOutStorage_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_detail.aspx.designer.cs">
+      <DependentUpon>pushOutStorage_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_detail_edit.aspx.cs">
+      <DependentUpon>pushOutStorage_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_detail_edit.aspx.designer.cs">
+      <DependentUpon>pushOutStorage_detail_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_edit.aspx.cs">
+      <DependentUpon>pushOutStorage_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_edit.aspx.designer.cs">
+      <DependentUpon>pushOutStorage_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_list.aspx.cs">
+      <DependentUpon>pushOutStorage_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\pushOutStorage\pushOutStorage_list.aspx.designer.cs">
+      <DependentUpon>pushOutStorage_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_detail.aspx.cs">
+      <DependentUpon>putInStorage_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_detail.aspx.designer.cs">
+      <DependentUpon>putInStorage_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_detail_edit.aspx.cs">
+      <DependentUpon>putInStorage_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_detail_edit.aspx.designer.cs">
+      <DependentUpon>putInStorage_detail_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_edit.aspx.cs">
+      <DependentUpon>putInStorage_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_edit.aspx.designer.cs">
+      <DependentUpon>putInStorage_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_list.aspx.cs">
+      <DependentUpon>putInStorage_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\putInStorage\putInStorage_list.aspx.designer.cs">
+      <DependentUpon>putInStorage_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\chouseGoods.aspx.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\chouseGoods.aspx.designer.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_detail.aspx.cs">
+      <DependentUpon>retailReturn_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_detail.aspx.designer.cs">
+      <DependentUpon>retailReturn_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_edit.aspx.cs">
+      <DependentUpon>retailReturn_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_edit.aspx.designer.cs">
+      <DependentUpon>retailReturn_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_list.aspx.cs">
+      <DependentUpon>retailReturn_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailReturn\retailReturn_list.aspx.designer.cs">
+      <DependentUpon>retailReturn_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\chouseGoods.aspx.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\chouseGoods.aspx.designer.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_detail.aspx.cs">
+      <DependentUpon>retailStorage_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_detail.aspx.designer.cs">
+      <DependentUpon>retailStorage_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_detail_edit.aspx.cs">
+      <DependentUpon>retailStorage_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_detail_edit.aspx.designer.cs">
+      <DependentUpon>retailStorage_detail_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_edit.aspx.cs">
+      <DependentUpon>retailStorage_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_edit.aspx.designer.cs">
+      <DependentUpon>retailStorage_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_list.aspx.cs">
+      <DependentUpon>retailStorage_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retailStorage\retailStorage_list.aspx.designer.cs">
+      <DependentUpon>retailStorage_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\chouseGoods.aspx.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\chouseGoods.aspx.designer.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_detail.aspx.cs">
+      <DependentUpon>retrnOfGoods_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_detail.aspx.designer.cs">
+      <DependentUpon>retrnOfGoods_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_detail_edit.aspx.cs">
+      <DependentUpon>retrnOfGoods_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_detail_edit.aspx.designer.cs">
+      <DependentUpon>retrnOfGoods_detail_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_edit.aspx.cs">
+      <DependentUpon>retrnOfGoods_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_edit.aspx.designer.cs">
+      <DependentUpon>retrnOfGoods_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_list.aspx.cs">
+      <DependentUpon>retrnOfGoods_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnOfGoods\retrnOfGoods_list.aspx.designer.cs">
+      <DependentUpon>retrnOfGoods_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\chouseGoods.aspx.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\chouseGoods.aspx.designer.cs">
+      <DependentUpon>chouseGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_detail.aspx.cs">
+      <DependentUpon>retrnToStorage_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_detail.aspx.designer.cs">
+      <DependentUpon>retrnToStorage_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_detail_edit.aspx.cs">
+      <DependentUpon>retrnToStorage_detail_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_detail_edit.aspx.designer.cs">
+      <DependentUpon>retrnToStorage_detail_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_edit.aspx.cs">
+      <DependentUpon>retrnToStorage_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_edit.aspx.designer.cs">
+      <DependentUpon>retrnToStorage_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_list.aspx.cs">
+      <DependentUpon>retrnToStorage_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\retrnToStorage\retrnToStorage_list.aspx.designer.cs">
+      <DependentUpon>retrnToStorage_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\supplierAndClient\supplierAndClient_edit.aspx.cs">
+      <DependentUpon>supplierAndClient_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\supplierAndClient\supplierAndClient_edit.aspx.designer.cs">
+      <DependentUpon>supplierAndClient_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\supplierAndClient\supplierAndClient_list.aspx.cs">
+      <DependentUpon>supplierAndClient_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\supplierAndClient\supplierAndClient_list.aspx.designer.cs">
+      <DependentUpon>supplierAndClient_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\chouseUsers.aspx.cs">
+      <DependentUpon>chouseUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\chouseUsers.aspx.designer.cs">
+      <DependentUpon>chouseUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\warehouse_edit.aspx.cs">
+      <DependentUpon>warehouse_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\warehouse_edit.aspx.designer.cs">
+      <DependentUpon>warehouse_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\mainPage.aspx.cs">
+      <DependentUpon>mainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\mainPage.aspx.designer.cs">
+      <DependentUpon>mainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\changePassword.aspx.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\changePassword.aspx.designer.cs">
+      <DependentUpon>changePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\dataDictionary\dataDictionary_edit.aspx.cs">
+      <DependentUpon>dataDictionary_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\dataDictionary\dataDictionary_edit.aspx.designer.cs">
+      <DependentUpon>dataDictionary_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\dataDictionary\dataDictionary_list.aspx.cs">
+      <DependentUpon>dataDictionary_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\dataDictionary\dataDictionary_list.aspx.designer.cs">
+      <DependentUpon>dataDictionary_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\menu\menu_edit.aspx.cs">
+      <DependentUpon>menu_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\menu\menu_edit.aspx.designer.cs">
+      <DependentUpon>menu_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\menu\menu_list.aspx.cs">
+      <DependentUpon>menu_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\menu\menu_list.aspx.designer.cs">
+      <DependentUpon>menu_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\organization\chouseRole.aspx.cs">
+      <DependentUpon>chouseRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\organization\chouseRole.aspx.designer.cs">
+      <DependentUpon>chouseRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\organization\organization_edit.aspx.cs">
+      <DependentUpon>organization_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\organization\organization_edit.aspx.designer.cs">
+      <DependentUpon>organization_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\organization\organization_list.aspx.cs">
+      <DependentUpon>organization_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\organization\organization_list.aspx.designer.cs">
+      <DependentUpon>organization_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\organization\user_edit.aspx.cs">
+      <DependentUpon>user_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\organization\user_edit.aspx.designer.cs">
+      <DependentUpon>user_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\role\chouseMenu.aspx.cs">
+      <DependentUpon>chouseMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\role\chouseMenu.aspx.designer.cs">
+      <DependentUpon>chouseMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\role\role_edit.aspx.cs">
+      <DependentUpon>role_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\role\role_edit.aspx.designer.cs">
+      <DependentUpon>role_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\sys\role\role_list.aspx.cs">
+      <DependentUpon>role_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\sys\role\role_list.aspx.designer.cs">
+      <DependentUpon>role_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\YMessageBox.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\warehouse_list.aspx.cs">
+      <DependentUpon>warehouse_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="background\inventory\warehouse\warehouse_list.aspx.designer.cs">
+      <DependentUpon>warehouse_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YInventory\YInventory.csproj">
+      <Project>{5860D762-D407-4DF7-BC9E-4EB9D8214051}</Project>
+      <Name>YInventory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2380</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
