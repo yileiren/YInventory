@@ -3,11 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>异类人敏捷开发平台</title>
     <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-cache" />  
-    <meta http-equiv="expires" content="0" />  
+    <meta http-equiv="cache-control" ontent="no-cache">  
+    <meta http-equiv="expires" content="0">  
     
     <link href="../../js/jquery-easyui/themes/icon.css" rel="stylesheet" type="text/css" />
     <link href="../../js/jquery-easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
     <script language="javascript" type="text/javascript">
     <!--
         //使用MD5加密算法加密密码
-        function changePassword() 
+        function changePassword()
         {
             var oldPassword = $("#passUserPassword").val();
             var newPassword = hex_md5(oldPassword);
@@ -36,7 +36,7 @@
                 changePassword();
                 return true;
             }
-            else 
+            else
             {
 
                 return false;
@@ -53,12 +53,31 @@
             }
         }
 
-        $(document).ready(function () 
+        $(document).ready(function ()
         {
-            if (window.top.location != window.self.location) 
+            if (window.top.location != window.self.location)
             {
                 window.top.location = "login.aspx";
             }
+
+            $("#txtUserName").bind("keypress", function (e)
+            {
+                if (e.keyCode == 13 && $(this).val() != "")
+                {
+                    $("#passUserPassword").focus();
+                }
+            });
+
+            $("#passUserPassword").bind("keypress", function (e)
+            {
+                if (e.keyCode == 13)
+                {
+                    if (checkForms())
+                    {
+                        __doPostBack('butLogin', '')
+                    }
+                }
+            });
         });
     //-->
     </script>
