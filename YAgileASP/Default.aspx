@@ -6,7 +6,12 @@
 <head runat="server">
     <title>异类人敏捷开发平台</title>
 
-
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function ()
+        {
+            location.href = "background/sys/login.aspx";
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
